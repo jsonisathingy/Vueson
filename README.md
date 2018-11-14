@@ -1,5 +1,9 @@
 # Vueson
 
+## Project purpose
+
+Project is in very early development with the goal of providing a UI that self generates based off of JSON Schema.
+
 ## Project setup
 ```
 npm install
