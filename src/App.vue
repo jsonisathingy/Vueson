@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import Example from './components/Example.vue';
+import Example from './Example.vue';
 
 export default {
-  name: 'app',
-  components: {
-    Example
-  }
+    name: 'app',
+    components: {
+        Example
+    }
 };
 </script>
 

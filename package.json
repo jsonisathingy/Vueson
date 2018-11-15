@@ -9,6 +9,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "lodash": "^4.17.11",
     "vue": "^2.5.17"
   },
   "devDependencies": {
@@ -36,7 +37,14 @@
       "@vue/standard"
     ],
     "rules": {
-      "semi": ["error", "always"]
+      "semi": [
+        "error",
+        "always"
+      ],
+      "indent": [
+        "error",
+        4
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"
@@ -50,6 +58,6 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not ie <= 10"
   ]
 }
