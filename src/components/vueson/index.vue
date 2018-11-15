@@ -1,16 +1,16 @@
 <template>
-  <div class="vueson-schema-holder">
-    <form class="vueson-schema-body" v-if="displaySchema">
-      <template v-for="display in displaySchema">
-        <BooleanDisplay v-model="saveData[display.key]" :propSchema="display" :key="display.title +'_' +display.type" v-if="safeCompare(display.type, 'boolean')"></BooleanDisplay>
-        <StringDisplay v-model="saveData[display.key]" :propSchema="display" :key="display.title +'_' +display.type" v-if="safeCompare(display.type, 'string')"></StringDisplay>
-        <NumberDisplay v-model="saveData[display.key]" :propSchema="display" :key="display.title +'_' +display.type" v-if="safeCompare(display.type, 'number')"></NumberDisplay>
-      </template>
-    </form>
-    <div class="vueson-no-schema" v-else>
-      <h2>No Schema Provided</h2>
+    <div class="vueson-schema-holder">
+        <form class="vueson-schema-body" v-if="displaySchema">
+            <template v-for="display in displaySchema">
+                <BooleanDisplay :theme="theme" v-model="saveData[display.key]" :propSchema="display" :key="display.title +'_' +display.type" v-if="safeCompare(display.type, 'boolean')"></BooleanDisplay>
+                <StringDisplay :theme="theme" v-model="saveData[display.key]" :propSchema="display" :key="display.title +'_' +display.type" v-if="safeCompare(display.type, 'string')"></StringDisplay>
+                <NumberDisplay :theme="theme" v-model="saveData[display.key]" :propSchema="display" :key="display.title +'_' +display.type" v-if="safeCompare(display.type, 'number')"></NumberDisplay>
+            </template>
+        </form>
+        <div class="vueson-no-schema" v-else>
+            <h2>No Schema Provided</h2>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -40,6 +40,9 @@ export default {
     props: {
         schema: {
             type: Object
+        },
+        theme: {
+            type: String
         }
     },
     methods: {

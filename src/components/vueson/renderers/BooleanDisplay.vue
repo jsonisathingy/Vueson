@@ -1,8 +1,22 @@
 <template>
     <div>
-        <div class="form-check">
+        <div v-if="theme = 'bootstrap'" class="form-check">
             <input class="form-check-input" :name="propSchema.title" type="checkbox" v-model="inputValue">
             <label class="form-check-label" :for="propSchema.title">
+                {{propSchema.title}}
+            </label>
+        </div>
+
+        <div v-else-if="theme = 'bulma'" class="form-check">
+            <input :name="propSchema.title" type="checkbox" v-model="inputValue">
+            <label :for="propSchema.title">
+                {{propSchema.title}}
+            </label>
+        </div>
+
+        <div v-else-if="theme = 'material'" class="form-check">
+            <input :name="propSchema.title" type="checkbox" v-model="inputValue">
+            <label :for="propSchema.title">
                 {{propSchema.title}}
             </label>
         </div>
