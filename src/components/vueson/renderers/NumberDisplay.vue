@@ -1,10 +1,26 @@
 <template>
     <div>
-        <div class="form-group row">
+        <div v-if="theme = 'bootstrap'" class="form-group row">
             <label :name="propSchema.title" class="col-sm-2 col-form-label">{{propSchema.title}}</label>
             <div class="col-sm-10">
-                <input type="number" v-model.number="inputValue" :name="propSchema.title" class="form-control">
+                <input class="form-control" type="number" v-model.number="inputValue" :name="propSchema.title">
                 <p><small class="text-muted">{{propSchema.description}}</small></p>
+            </div>
+        </div>
+
+        <div v-else-if="theme = 'bulma'">
+            <label :name="propSchema.title">{{propSchema.title}}</label>
+            <div>
+                <input type="number" v-model.number="inputValue" :name="propSchema.title">
+                <p><small>{{propSchema.description}}</small></p>
+            </div>
+        </div>
+
+        <div v-else-if="theme = 'material'">
+            <label :name="propSchema.title">{{propSchema.title}}</label>
+            <div>
+                <input type="number" v-model.number="inputValue" :name="propSchema.title">
+                <p><small>{{propSchema.description}}</small></p>
             </div>
         </div>
     </div>
