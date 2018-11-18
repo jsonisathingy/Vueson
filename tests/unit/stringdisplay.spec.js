@@ -4,11 +4,7 @@ import StringDisplay from '@/components/vueson/renderers/StringDisplay';
 
 describe('StringDisplay.vue', () => {
     it('Render String Renderer', () => {
-        const wrapper = shallowMount(StringDisplay, {
-            propsData: {
-                propSchema: {}
-            }
-        });
+        const wrapper = shallowMount(StringDisplay);
 
         expect(wrapper.name()).to.include('String-Display');
     });

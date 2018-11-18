@@ -1,25 +1,25 @@
 <template>
     <div>
-        <div v-if="theme = 'bootstrap'" class="form-group row">
-            <label :name="propSchema.title" class="col-sm-2 col-form-label">{{propSchema.title}}</label>
+        <div v-if="theme === 'bootstrap'" class="form-group row">
+            <label :for="id +'_' +propSchema.key" class="col-sm-2 col-form-label">{{propSchema.title}}</label>
             <div class="col-sm-10">
-                <input type="text" v-model="inputValue" :name="propSchema.title" class="form-control">
+                <input type="text" v-model="inputValue" :id="id +'_' +propSchema.key" class="form-control">
                 <p><small class="text-muted">{{propSchema.description}}</small></p>
             </div>
         </div>
 
-        <div v-else-if="theme = 'bulma'">
-            <label :name="propSchema.title">{{propSchema.title}}</label>
+        <div v-else-if="theme === 'bulma'">
+            <label :for="id +'_' +propSchema.key">{{propSchema.title}}</label>
             <div>
-                <input type="string" v-model="inputValue" :name="propSchema.title">
+                <input type="string" v-model="inputValue" :id="id +'_' +propSchema.key" :name="propSchema.key">
                 <p><small>{{propSchema.description}}</small></p>
             </div>
         </div>
 
-        <div v-else-if="theme = 'material'">
-            <label :name="propSchema.title">{{propSchema.title}}</label>
+        <div v-else-if="theme === 'material'">
+            <label :for="id +'_' +propSchema.key">{{propSchema.title}}</label>
             <div>
-                <input type="string" v-model="inputValue" :name="propSchema.title">
+                <input type="string" v-model="inputValue" :id="id +'_' +propSchema.key" :name="propSchema.key">
                 <p><small>{{propSchema.description}}</small></p>
             </div>
         </div>
@@ -35,15 +35,23 @@ export default {
             default () {
                 return {};
             }
+        },
+        theme: {
+            type: String,
+            default () {
+                return 'Bootstrap';
+            }
         }
     },
     data () {
         return {
-            inputValue: this.propSchema.value
+            inputValue: this.propSchema.value,
+            id: null
         };
     },
     mounted () {
         this.$emit('stringLoaded');
+        this.id = this._uid;
     },
     watch: {
         /**

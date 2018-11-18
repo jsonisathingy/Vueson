@@ -33,3 +33,9 @@ npm run lint
 ```
 npm run test:unit
 ```
+
+### Generate Distribution Library
+
+```
+npm run build-bundle
+```

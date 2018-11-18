@@ -14,13 +14,14 @@
 </template>
 
 <script>
-import _ from 'lodash';
+import forEach from 'lodash.foreach';
+import clone from 'lodash.clone';
 import BooleanDisplay from './renderers/BooleanDisplay';
 import StringDisplay from './renderers/StringDisplay';
 import NumberDisplay from './renderers/NumberDisplay';
 
 export default {
-    name: 'Vueson',
+    name: 'Vueson-Editor',
     components: {
         BooleanDisplay,
         StringDisplay,
@@ -63,7 +64,7 @@ export default {
         generateResultJson (schema) {
             let tempResult = {};
 
-            _.each(schema, (details) => {
+            forEach(schema, (details) => {
                 if (details.value) {
                     tempResult[details.key] = details.value;
                 } else {
@@ -91,8 +92,8 @@ export default {
         generateDisplaySchema (schema) {
             let tempDisplaySchema = [];
 
-            _.each(schema, (details, key) => {
-                let tempDetails = _.clone(details);
+            forEach(schema, (details, key) => {
+                let tempDetails = clone(details);
 
                 tempDetails.key = key;
                 tempDisplaySchema.push(tempDetails);
