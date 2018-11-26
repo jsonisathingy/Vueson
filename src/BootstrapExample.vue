@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import Vueson from './components/vueson';
 import ExampleSchema from './SchemaExample';
 
 export default {
@@ -30,9 +29,6 @@ export default {
             displayData: '',
             schema: ExampleSchema
         };
-    },
-    components: {
-        Vueson
     },
     methods: {
         showData () {

@@ -1,22 +1,22 @@
 <template>
     <div>
-        <div v-if="theme = 'bootstrap'" class="form-check">
-            <input class="form-check-input" :name="propSchema.title" type="checkbox" v-model="inputValue">
-            <label class="form-check-label" :for="propSchema.title">
+        <div v-if="theme === 'bootstrap'" class="form-check">
+            <input class="form-check-input" :id="id +'_' +propSchema.key" :name="propSchema.key" type="checkbox" v-model="inputValue">
+            <label class="form-check-label" :for="id +'_' +propSchema.key">
                 {{propSchema.title}}
             </label>
         </div>
 
-        <div v-else-if="theme = 'bulma'" class="form-check">
-            <input :name="propSchema.title" type="checkbox" v-model="inputValue">
-            <label :for="propSchema.title">
+        <div v-else-if="theme === 'bulma'" class="form-check">
+            <input :name="propSchema.key" :id="id +'_' +propSchema.key" type="checkbox" v-model="inputValue">
+            <label :for="id +'_' +propSchema.key">
                 {{propSchema.title}}
             </label>
         </div>
 
-        <div v-else-if="theme = 'material'" class="form-check">
-            <input :name="propSchema.title" type="checkbox" v-model="inputValue">
-            <label :for="propSchema.title">
+        <div v-else-if="theme === 'material'" class="form-check">
+            <input :name="propSchema.key" :id="id +'_' +propSchema.key" type="checkbox" v-model="inputValue">
+            <label :for="id +'_' +propSchema.key">
                 {{propSchema.title}}
             </label>
         </div>
@@ -32,15 +32,23 @@ export default {
             default () {
                 return {};
             }
+        },
+        theme: {
+            type: String,
+            default () {
+                return 'bootstrap';
+            }
         }
     },
     data () {
         return {
-            inputValue: this.propSchema.value
+            inputValue: this.propSchema.value,
+            id: null
         };
     },
     mounted () {
         this.$emit('booleanLoaded');
+        this.id = this._uid;
     },
     watch: {
         /**
