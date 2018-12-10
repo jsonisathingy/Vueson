@@ -1,8 +1,8 @@
 <template>
     <div class="container">
+        <h5 class="mb-4 font-weight-bold">Bootstrap Example Editor:</h5>
         <div class="row">
             <div class="col-8">
-                <h5>Bootstrap Example Editor:</h5>
                 <div class="card m-auto">
                     <div class="card-body">
                         <Vueson theme="bootstrap" ref="vuesonEditor" :schema='schema'></Vueson>

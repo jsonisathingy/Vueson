@@ -1,5 +1,8 @@
 <template>
     <div>
+        <!--
+        For Bootstrap
+        -->
         <div v-if="theme === 'bootstrap'" class="form-group row">
             <label :for="id +'_' +propSchema.key" class="col-sm-2 col-form-label">{{propSchema.title}}</label>
             <div class="col-sm-10">
@@ -8,14 +11,26 @@
             </div>
         </div>
 
-        <div v-else-if="theme === 'bulma'">
-            <label :for="id +'_' +propSchema.key">{{propSchema.title}}</label>
-            <div>
-                <input type="string" v-model="inputValue" :id="id +'_' +propSchema.key" :name="propSchema.key">
-                <p><small>{{propSchema.description}}</small></p>
+        <!--
+        For Bulma
+        -->
+        <div class="field is-horizontal" style="margin-bottom: 10px;" v-else-if="theme === 'bulma'">
+            <div class="field-label is-normal">
+                <label class="label" :for="id +'_' +propSchema.key">{{propSchema.title}}</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input v-model="inputValue" :id="id +'_' +propSchema.key" :name="propSchema.key" class="input" type="text" >
+                        <small class="has-text-grey-light">{{propSchema.description}}</small>
+                    </p>
+                </div>
             </div>
         </div>
 
+        <!--
+        For Material
+        -->
         <div v-else-if="theme === 'material'">
             <label :for="id +'_' +propSchema.key">{{propSchema.title}}</label>
             <div>
