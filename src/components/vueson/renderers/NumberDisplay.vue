@@ -8,11 +8,17 @@
             </div>
         </div>
 
-        <div v-else-if="theme === 'bulma'">
-            <label :for="id +'_' +propSchema.key">{{propSchema.title}}</label>
-            <div>
-                <input type="number" v-model.number="inputValue" :id="id +'_' +propSchema.key" :name="propSchema.key">
-                <p><small>{{propSchema.description}}</small></p>
+        <div class="field is-horizontal" style="margin-bottom: 10px;" v-else-if="theme === 'bulma'">
+            <div class="field-label is-normal">
+                <label class="label" :for="id +'_' +propSchema.key">{{propSchema.title}}</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input v-model="inputValue" :id="id +'_' +propSchema.key" :name="propSchema.key" class="input" type="number">
+                        <small class="has-text-grey-light">{{propSchema.description}}</small>
+                    </p>
+                </div>
             </div>
         </div>
 

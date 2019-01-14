@@ -7,12 +7,10 @@
             </label>
         </div>
 
-        <div v-else-if="theme === 'bulma'" class="form-check">
-            <input :name="propSchema.key" :id="id +'_' +propSchema.key" type="checkbox" v-model="inputValue">
-            <label :for="id +'_' +propSchema.key">
-                {{propSchema.title}}
-            </label>
-        </div>
+        <label class="checkbox" v-else-if="theme === 'bulma'">
+            <input :name="propSchema.key" :id="id +'_' +propSchema.key" v-model="inputValue" type="checkbox">
+            {{propSchema.title}}
+        </label>
 
         <div v-else-if="theme === 'material'" class="form-check">
             <input :name="propSchema.key" :id="id +'_' +propSchema.key" type="checkbox" v-model="inputValue">
